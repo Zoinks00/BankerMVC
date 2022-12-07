@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0F3ViypbWerfEln/NnDKNavIeWZFWhcFPFInhG7xyd4wdG2DopuVlZNYmxGV2CH3+gh2yzEO5BwJUtN5U6/U6w==",
+  "dgSpecHash": "WUb7AGT5RMuWzKdiAmxbXnR0TaPTatoOEoURLXLup2saRQ+IbZWwyD308WL1gq/d3WoE5d+4g7/wDmMRC4stcw==",
   "success": true,
   "projectFilePath": "C:\\Users\\forre\\source\\repos\\BankersMVC2\\BankersMVC2\\BankersMVC2.csproj",
   "expectedPackageFiles": [
@@ -24,7 +24,8 @@
     "C:\\Users\\forre\\.nuget\\packages\\system.security.permissions\\4.7.0\\system.security.permissions.4.7.0.nupkg.sha512",
     "C:\\Users\\forre\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\forre\\.nuget\\packages\\system.text.encoding.codepages\\4.4.0\\system.text.encoding.codepages.4.4.0.nupkg.sha512",
-    "C:\\Users\\forre\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
+    "C:\\Users\\forre\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
+    "C:\\Users\\forre\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.24\\microsoft.netcore.app.host.win-x64.3.1.24.nupkg.sha512"
   ],
   "logs": []
 }

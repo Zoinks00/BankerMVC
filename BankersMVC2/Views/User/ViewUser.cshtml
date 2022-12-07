@@ -1,0 +1,25 @@
+﻿@model User
+
+
+
+
+<h3>@Model.FirstName Account Information</h3>
+
+<table class="table">
+    <tr>
+        <th>User ID  </th>
+        <th>First   </th>
+        <th>Middle  </th>
+        <th>Last  </th>
+        <th>IdBalance</th>
+
+    </tr>
+    <tr>
+        <td>@Model.IdUser</td>
+        <td>@Model.FirstName</td>
+        <td>@Model.MiddleName</td>
+        <td>@Model.LastName</td>
+        <td><a href="/Balance/ViewBalance/@Model.IdBalance">@Model.IdBalance</a></td>
+    </tr>
+</table>
+

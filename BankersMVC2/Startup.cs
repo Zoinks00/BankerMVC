@@ -1,13 +1,18 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Data;
+using Dapper;
+using MySql.Data.MySqlClient;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace BankersMVC2
 {
@@ -23,6 +28,17 @@ namespace BankersMVC2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IDbConnection>((s) =>
+            {
+                IDbConnection conn = new MySqlConnection(Configuration.GetConnectionString("bankers"));
+                conn.Open();
+                return conn;
+            });
+                              
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IBalanceRepository, BalanceRepository>();
+            services.AddTransient<ITransRepository, TransRepository>();
+            
             services.AddControllersWithViews();
         }
 
@@ -45,7 +61,7 @@ namespace BankersMVC2
             app.UseRouting();
 
             app.UseAuthorization();
-
+           
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
