@@ -17,6 +17,11 @@ namespace BankersMVC2.Controllers
             this.repo = repo;
         }
         //
+        public IActionResult Index()
+        {
+            var user = repo.GetAllUsers();
+            return View(user);
+        }
         
         public IActionResult ViewUser(int id)
         {
