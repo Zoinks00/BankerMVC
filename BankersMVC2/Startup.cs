@@ -12,6 +12,8 @@ using System.Data;
 using Dapper;
 using MySql.Data.MySqlClient;
 using Microsoft.AspNetCore.Identity;
+using BankersMVC2.Data;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace BankersMVC2
@@ -28,6 +30,15 @@ namespace BankersMVC2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            
+            //add service for dbcontext to connect to database in MySql
+            services.AddDbContext<UserContext>(opt => opt.UseMySQL
+               (Configuration.GetConnectionString("bankers")));
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                //call Dbcontext 
+                .AddEntityFrameworkStores<UserContext>();
             services.AddScoped<IDbConnection>((s) =>
             {
                 IDbConnection conn = new MySqlConnection(Configuration.GetConnectionString("bankers"));
@@ -57,6 +68,8 @@ namespace BankersMVC2
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            //add authentication middleware
+            app.UseAuthentication();
 
             app.UseRouting();
 
